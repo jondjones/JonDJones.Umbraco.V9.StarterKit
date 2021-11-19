@@ -1,0 +1,17 @@
+﻿@model Umbraco.Cms.Web.Common.PublishedModels.CardContainer
+<section id="features">
+	<div class="container">
+		<header>
+			<h2>@Model.Title</h2>
+		</header>
+
+		<div class="row aln-center">
+			@Html.GetBlockListHtml(Model.ComponentArea);
+		</div>
+		<div class="col-12">
+			<ul class="actions">
+				<li><a href="#" class="button icon solid fa-file">Tell Me More</a></li>
+			</ul>
+		</div>
+	</div>
+</section>

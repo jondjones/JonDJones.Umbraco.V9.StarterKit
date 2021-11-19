@@ -1,1 +1,41 @@
-﻿Hello!
+﻿@using JonDJones.Core.ViewModel.Base;
+@using System.Web
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@using JonDJones.Core.ViewModel;
+
+@model ComposedPageViewModel<Home, HomeViewModel>
+@{
+    Layout = "../master.cshtml";
+}
+
+@Html.GetBlockListHtml(Model.Page.CompontentArea)
+
+<!-- Main -->
+<section id="main">
+	<div class="container">
+		<div class="row">
+
+			<!-- Content -->
+				<div id="content" class="col-12 col-12-medium">
+				@foreach(var blog in Model.ViewModel.Blogs) {
+
+					<!-- Post -->
+					<article class="box post">
+						<header>
+							<h2><a href="@blog.LinkUrl">@blog.Title</a></h2>
+						</header>
+						<a href="@blog.LinkUrl)" class="image featured"><img src="@blog.ImageUrl" alt="@blog.Title" /></a>
+		
+						<p>
+
+						@blog.Content
+								
+						<ul class="actions">
+							<li><a href="@blog.LinkUrl" class="button icon solid fa-file">Continue Reading</a></li>
+						</ul>
+					</article>
+				}
+			</div>
+		</div>
+	</div>
+</section>

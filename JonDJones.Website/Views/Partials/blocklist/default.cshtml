@@ -2,12 +2,11 @@
 @{
     if (!Model.Any()) { return; }
 }
-<div class="umb-block-list">
+
     @foreach (var block in Model)
     {
         if (block?.ContentUdi == null) { continue; }
         var data = block.Content;
 
-        @await Html.PartialAsync("BlockList/Components/" + data.ContentType.Alias, block)
+        @await Component.InvokeAsync(data.ContentType.Alias, (IPublishedElement)data)
     }
-</div>
