@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Umbraco.Cms.Core.DependencyInjection;
+using Umbraco.Cms.Web.Common.Controllers;
 using Umbraco.Extensions;
 
 namespace JonDJonesUmbraco9SampleSite
@@ -67,6 +68,16 @@ namespace JonDJonesUmbraco9SampleSite
                 })
                 .WithEndpoints(u =>
                 {
+                    u.EndpointRouteBuilder.MapControllerRoute(
+                                   "vanilla-route",
+                                   "/vanilla/{action}/{id?}",
+                                   new { Controller = "Vanilla", Action = "Index" });
+
+                    u.EndpointRouteBuilder.MapControllerRoute(
+                                   "secure-route",
+                                   "umbraco/backoffice/Plugins/Backend/Index",
+                                   new { Controller = "Backend", Action = "Index" });
+
                     u.UseInstallerEndpoints();
                     u.UseBackOfficeEndpoints();
                     u.UseWebsiteEndpoints();

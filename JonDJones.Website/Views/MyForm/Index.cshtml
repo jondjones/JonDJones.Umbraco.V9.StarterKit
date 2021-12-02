@@ -1,0 +1,10 @@
+﻿@using JonDJones.Core.ViewModel.Base;
+@using System.Web
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@using JonDJones.Core.ViewModel.Page;
+
+@using (Html.BeginUmbracoForm<JonDJones.Core.Controller.MyFormController>("HandleSubmit"))
+{
+    <input type="submit" />
+    <button>Submit</button>
+}
