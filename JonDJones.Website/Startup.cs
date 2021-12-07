@@ -1,10 +1,12 @@
 using System;
+using JonDJones.Core.Components;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Umbraco.Cms.Core.DependencyInjection;
+using Umbraco.Cms.Core.Notifications;
 using Umbraco.Cms.Web.Common.Controllers;
 using Umbraco.Extensions;
 
@@ -44,6 +46,7 @@ namespace JonDJonesUmbraco9SampleSite
                 .AddBackOffice()
                 .AddWebsite()
                 .AddComposers()
+                .AddNotificationHandler<ContentPublishingNotification, LogPushlishNotification>()
                 .Build();
 #pragma warning restore IDE0022 // Use expression body for methods
         }
@@ -68,19 +71,11 @@ namespace JonDJonesUmbraco9SampleSite
                 })
                 .WithEndpoints(u =>
                 {
-                    u.EndpointRouteBuilder.MapControllerRoute(
-                                   "vanilla-route",
-                                   "/vanilla/{action}/{id?}",
-                                   new { Controller = "Vanilla", Action = "Index" });
-
-                    u.EndpointRouteBuilder.MapControllerRoute(
-                                   "secure-route",
-                                   "umbraco/backoffice/Plugins/Backend/Index",
-                                   new { Controller = "Backend", Action = "Index" });
-
                     u.UseInstallerEndpoints();
                     u.UseBackOfficeEndpoints();
                     u.UseWebsiteEndpoints();
+                    // Good practice. Define a custom UmbracoApplicationBuilderExtension
+                    u.UseCustomEndpoints();
                 });
         }
     }

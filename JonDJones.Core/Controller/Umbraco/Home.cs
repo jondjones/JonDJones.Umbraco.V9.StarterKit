@@ -5,7 +5,6 @@ using JonDJones.Core.ViewModel.Base;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewEngines;
 using Microsoft.Extensions.Logging;
-using Umbraco.Cms.Core.Models;
 using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Cms.Core.Web;
 using Umbraco.Cms.Web.Common.Controllers;
@@ -17,21 +16,18 @@ namespace JonDJones.Core.Controller
     {
         private IPublishedValueFallback _publishedValueFallback;
         private IBlogService _blogService;
-        private IMenuService _menuService;
 
         public HomeController(
                 ILogger<HomeController> logger,
                 ICompositeViewEngine compositeViewEngine,
                 IUmbracoContextAccessor umbracoContextAccessor,
                 IPublishedValueFallback publishedValueFallback,
-                IBlogService blogService,
-                IMenuService menuService
+                IBlogService blogService
              )
             : base(logger, compositeViewEngine, umbracoContextAccessor)
         {
             _publishedValueFallback = publishedValueFallback;
             _blogService = blogService;
-            _menuService = menuService;
         }
 
         public override IActionResult Index()

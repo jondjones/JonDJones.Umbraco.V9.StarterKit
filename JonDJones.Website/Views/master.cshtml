@@ -9,14 +9,18 @@
 	</head>
 	<body class="homepage is-preload">
 
-	<div id="page-wrapper">
+        <div id="page-wrapper">
 
-		@await Component.InvokeAsync("Header");
+            <cache expires-after="@TimeSpan.FromMinutes(5)">
+                @await Component.InvokeAsync("Header");
+            </cache>
 
-		@RenderBody()
+            @RenderBody()
 
-		@await Component.InvokeAsync("Footer");
-	</div>
+			<cache expires-after="@TimeSpan.FromMinutes(5)">
+				@await Component.InvokeAsync("Footer");
+			</cache>
+        </div>
 
 		<!-- Scripts -->
 		<script src="assets/js/jquery.min.js"></script>
