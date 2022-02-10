@@ -30,12 +30,12 @@ namespace JonDJones.Core.Services
             return listing.Descendants<Blog>().Select(ConvertToBlogItemViewModel);
         }
 
-        private BlogItemViewModel ConvertToBlogItemViewModel(Blog blog, int arg2)
+        private BlogItemViewModel ConvertToBlogItemViewModel(Blog blog)
         {
             return new BlogItemViewModel
             {
                 Title = blog.Title,
-                ImageUrl = blog.Image.Url(),
+                ImageUrl = blog?.Image?.Url() ?? string.Empty,
                 LinkUrl = blog.Url(),
                 Content = new HtmlString(blog.Content.ToString())
             };

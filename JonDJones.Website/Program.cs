@@ -19,6 +19,7 @@ namespace JonDJonesUmbraco9SampleSite
                 .ConfigureAppConfiguration((ctx, builder) =>
                 {
                     builder.AddJsonFile("appsettings.json", false, true);
+                    // Add local developer level configuraion
                     builder.AddJsonFile($"appsettings.{Environment.MachineName}.json", true, true);
                     builder.AddEnvironmentVariables();
                 })

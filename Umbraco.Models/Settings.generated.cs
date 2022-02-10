@@ -56,5 +56,13 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("componentArea")]
 		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel ComponentArea => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "componentArea");
+
+		///<summary>
+		/// Member Page Url
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "9.0.0+5bfab13dc5a268714aad2426a2b68ab5561a6407")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("memberPageUrl")]
+		public virtual global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent MemberPageUrl => this.Value<global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent>(_publishedValueFallback, "memberPageUrl");
 	}
 }

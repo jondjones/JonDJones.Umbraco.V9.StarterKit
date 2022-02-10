@@ -7,7 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JonDJonesUmbraco9SampleSite
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Umbraco.Models", "Umbraco.Models\Umbraco.Models.csproj", "{D729CB44-19AB-4B10-9838-9111677C1390}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JonDJones.Core", "JonDJones.Core\JonDJones.Core.csproj", "{00BE9F82-847D-4168-B2BF-E276017277A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JonDJones.Core", "JonDJones.Core\JonDJones.Core.csproj", "{00BE9F82-847D-4168-B2BF-E276017277A5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Files", "Files", "{1274C04E-38EB-44A0-818B-B264D030A69B}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

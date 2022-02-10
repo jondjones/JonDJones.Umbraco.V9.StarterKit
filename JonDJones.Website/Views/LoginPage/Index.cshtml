@@ -1,0 +1,23 @@
+﻿@using JonDJones.Core.ViewModel.Base;
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@using JonDJones.Core.ViewModel.Page;
+
+@model ComposedPageViewModel<LoginPage, LoginPageViewModel>
+@{
+    Layout = "../master.cshtml";
+}
+
+<section id="main">
+    <div class="container">
+        <div id="content">
+            @if (Model.ViewModel.IsUserLoggedIn)
+            {
+                @(await Component.InvokeAsync("AuthenicatedComponent"))
+            }
+            else
+            {
+                @(await Component.InvokeAsync("AnonymousComponent"))
+            }
+        </div>
+    </div>
+</section>

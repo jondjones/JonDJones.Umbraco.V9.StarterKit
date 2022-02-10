@@ -5,5 +5,7 @@ namespace JonDJones.Core.Interfaces
     public interface ISettingsService
     {
         Settings SettingsPage { get; }
+
+        Home Homepage { get; }
     }
 }

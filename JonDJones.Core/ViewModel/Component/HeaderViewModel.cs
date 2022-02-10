@@ -6,5 +6,11 @@ namespace JonDJones.Core.ViewComponents
     public class HeaderViewModel
     {
         public IEnumerable<MenuItem> MenuItems { get; set; }
-    }
+
+        public string Title { get; set; }
+
+        public string SubTitle { get; set; }
+
+        public bool DisplayHeader { get; set; }
+}
 }

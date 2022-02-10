@@ -13,6 +13,7 @@ namespace JonDJones.Core.ViewComponents
         {
             _context = context;
         }
+
         public async Task<IViewComponentResult> InvokeAsync()
         {
             var content = _context.GetRequiredUmbracoContext().PublishedRequest.PublishedContent;

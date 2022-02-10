@@ -13,6 +13,8 @@ namespace JonDJones.Core.Composers
             builder.Services.AddTransient<IBlogService, BlogService>();
             builder.Services.AddTransient<IMenuService, MenuService>();
             builder.Services.AddTransient<ISettingsService, SettingsService>();
+            builder.Services.AddTransient<ISearchService, SearchService>();
+            builder.Services.AddTransient<IXmlSitemapService, XmlSitemapService>();
         }
     }
 }

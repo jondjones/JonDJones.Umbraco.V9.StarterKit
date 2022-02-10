@@ -1,0 +1,32 @@
+﻿@using JonDJones.Core.ViewModel.Poco
+@model IEnumerable<LinkPoco>
+
+@{
+    Layout = "./AdminLayout.cshtml";
+}
+
+<div class="col-md-12">
+    <div class="table-responsive">
+        <table class="table" style="text-align: left;">
+            <thead>
+                <tr>
+                    <th>Published Date</th>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.PostDateAsString</td>
+                        <td>
+                            <a href="@item.Url" target="_blank">
+                                @item.Name
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+﻿@model JonDJones.Core.ViewModel.Poco.ProfileViewModel
+
+<article class="box post">
+    <header>
+        <h2 >
+            Profile Details
+        </h2>
+    </header>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Comments</th>
+        </tr>
+        <tr>
+            <td>@Model.Name</td>
+            <td>@Model.Email</td>
+            <td>@Model.Comments</td>
+        </tr>
+    </table>
+
+    <div>
+        <p>
+            <a href="@Url.SurfaceAction("Logout", "LoginBox")" class="button icon solid fa-file">
+                Logout
+            </a>
+        </p>
+    </div>
+</article>

@@ -1,0 +1,36 @@
+﻿@using JonDJones.Core.ViewModel.Base;
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@using JonDJones.Core.ViewModel.Page;
+
+@model ComposedPageViewModel<Search, SearchViewModel>
+@{
+    Layout = "../master.cshtml";
+}
+
+<section id="main">
+    <div class="container">
+        <div id="content">
+
+            <!-- Post -->
+            <article class="box post">
+                    @if (Model.ViewModel.DisplayResults)
+                    {
+                        <ul>
+                            @foreach (var result in Model.ViewModel.Results)
+                            {
+                                <li>
+                                    <a href="@result.Url()">
+                                        @result.Name
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+                    }
+            </article>
+
+        </div>
+    </div>
+</section>
+
+
+

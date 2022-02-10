@@ -1,4 +1,4 @@
-# JonDJones.Umbraco.V9.StarterKit  :heart_eyes: - By JONDJONES.COM
+﻿# JonDJones.Umbraco.V9.StarterKit  :heart_eyes: - By JONDJONES.COM
 
 This is a .NET COre Umbraco V9 Stater kit.  Use this project to learn how to buid enterprise-level projects using Umbraco CMS.  Learn more about me or Umbraco then either visit my website [www.jondjones.co.uk](www.jondjones.co.uk) or check subscribe to my [YouTube channel](https://studio.youtube.com/channel/UCc7FlFtsxY1gLxp1PFf-gqA).
 
@@ -6,14 +6,19 @@ This is a .NET COre Umbraco V9 Stater kit.  Use this project to learn how to bui
 
 This is an open-source repo.  If you would like to add something or correct a mistake, please open a PR.
 
+
+## 👻 Live Site URL
+
+[http://umbracostarterkit.jondjones.com/](http://umbracostarterkit.jondjones.com/)
+
 ## :rocket: Getting Started
 
 1. Rstore DB from data folder
 2. Login on `/umbraco` with :
 
-|Password          | Email                      |
-|------------------|----------------------------|
-|passwordpassword  | jon@jondjones.com |
+| Email            | Password          |
+|------------------|-------------------|
+| test@test.com    | passwordpassword  |
 
 Umbraco v9 start kiter
 

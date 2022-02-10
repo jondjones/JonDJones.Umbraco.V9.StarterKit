@@ -8,7 +8,7 @@
     Layout = "../master.cshtml";
 }
 
-@Html.GetBlockListHtml(Model.Page.CompontentArea)
+@Html.GetBlockListHtml(Model.Page.ComponentArea)
 
 <!-- Main -->
 <section id="main">
@@ -25,11 +25,11 @@
 							<h2><a href="@blog.LinkUrl">@blog.Title</a></h2>
 						</header>
 						<a href="@blog.LinkUrl)" class="image featured"><img src="@blog.ImageUrl" alt="@blog.Title" /></a>
-		
+
 						<p>
 
 						@blog.Content
-								
+
 						<ul class="actions">
 							<li><a href="@blog.LinkUrl" class="button icon solid fa-file">Continue Reading</a></li>
 						</ul>

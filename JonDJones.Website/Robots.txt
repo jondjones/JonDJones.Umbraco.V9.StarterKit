@@ -1,0 +1,2 @@
+﻿Sitemap: http://umbracostarterkit.jondjones.com/xmlsitemap
+User-agent: *

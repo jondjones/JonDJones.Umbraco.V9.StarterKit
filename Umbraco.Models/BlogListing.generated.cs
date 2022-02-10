@@ -20,7 +20,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 {
 	/// <summary>Blog Listing</summary>
 	[PublishedModel("blogListing")]
-	public partial class BlogListing : PublishedContentModel
+	public partial class BlogListing : Base
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant

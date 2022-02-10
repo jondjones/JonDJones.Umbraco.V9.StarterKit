@@ -1,0 +1,33 @@
+﻿@model Umbraco.Cms.Web.Common.Models.LoginModel
+
+<article >
+    <header>
+        <h2>
+            Sign In
+        </h2>
+    </header>
+    <div>
+        @using (Html.BeginUmbracoForm<JonDJones.Core.Controller.SurfaceControllers.LoginBoxController>("Authenticate", FormMethod.Post))
+        {
+            <div class="col-12">
+                @Html.ValidationSummary()
+            </div>
+            <div class="col-12">
+                @Html.LabelFor(m => m.Username)
+                @Html.TextBoxFor(m => m.Username, new { placeholder = "Username" })
+            </div>
+            <div class="col-12">
+                @Html.LabelFor(m => m.Password)
+                @Html.PasswordFor(m => m.Password, new { placeholder = "Password" })
+            </div>
+            <div class="col-12" style="margin-top: 1rem">
+
+                <button name="login" class="form-button-submit button icon solid fa-envelope" type="submit">
+                    Login
+                </button>
+            </div>
+        }
+    </div>
+</article>
+
+

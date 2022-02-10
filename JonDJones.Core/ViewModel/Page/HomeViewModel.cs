@@ -5,6 +5,6 @@ namespace JonDJones.Core.ViewModel
 {
     public class HomeViewModel
     {
-        public IEnumerable<BlogItemViewModel> Blogs { get; internal set; }
+        public IEnumerable<BlogItemViewModel> Blogs { get; set; }
     }
 }
