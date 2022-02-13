@@ -1,0 +1,11 @@
+{
+  "name": "uSync",
+  "version": "9.1.0",
+  "javascript": [
+    "~/App_Plugins/uSync/usync.9.1.0.min.js"
+  ],
+  "css": [
+    "~/App_Plugins/uSync/usync.9.1.0.min.css"
+  ],
+  "bundleOptions": "Independent"
+}

@@ -1,0 +1,6 @@
+﻿<div>
+    <div class="alert alert-{{vm.status.type}} usync-expansion-licence-status" ng-if="vm.status.show">
+        {{vm.status.message}}
+        <strong><a ng-if="vm.status.link.length > 0" href="{{vm.status.link}}" target="_blank">more info</a></strong>
+    </div>
+</div>

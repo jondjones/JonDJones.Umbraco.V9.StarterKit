@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<language alias="en" intName="English (US)" localName="English (US)" lcid="" culture="en-US">
+  <creator>
+    <name>Jumoo</name>
+    <link>http://jumoo.uk</link>
+  </creator>
+  <area alias="usync">
+    <key alias="peopleintro">For passwords to work across umbraco instances - each umbraco install should have the same machineKey value in their web.config.</key>
+    
+    <key alias="importusers">Import users</key>
+    <key alias="importusersforce">Full user import</key>
+    <key alias="reportusers">Report users</key>
+    <key alias="exportusers">Export users</key>
+
+    <key alias="importmembers">Import members</key>
+    <key alias="importmembersforce">Full member import</key>
+    <key alias="reportmembers">Report members</key>
+    <key alias="exportmembers">Export members</key>
+
+  </area>
+  
+</language>

@@ -1,0 +1,69 @@
+﻿<div ng-controller="uSyncErrorDialogController as vm">
+    <umb-editor-panel>
+        <umb-editor-header name="vm.pageTitle"
+                           name-locked="true"
+                           hide-alias="true"
+                           hide-icon="true"
+                           hide-description="true">
+        </umb-editor-header>
+        <umb-editor-container>
+            <umb-box>
+                <umb-box-header title="{{vm.error.title}}">
+                </umb-box-header>
+                <umb-box-content>
+                    <div class="alert alert-danger usync-exp-error-alert">
+                        <div class="flex justify-between items-center">
+                            <h4>{{vm.error.title}}</h4>
+                            <button class="btn btn-link color-white" ng-click="vm.showDetails = !vm.showDetails">show details</button>
+                        </div>
+
+                        <div ng-if="vm.showDetails">
+
+                           
+                            <hr />
+
+                            <div class="flex flex-flow">
+                                <div class="flx-b2"><strong>Action:</strong> {{vm.error.action}}</div>
+                                <div class="flx-b2"><strong>Step:</strong> {{vm.error.stepName}} ({{vm.error.stepIndex}})</div>
+                                <div class="flx-b1"><strong>PageNumber:</strong> {{vm.error.pageNumber}}</div>
+                            </div>
+                            <div class="flex flex-flow">
+                                <div class="flx-b4"><strong>ClassName:</strong> {{vm.error.className}}</div>
+                                <div class="flx-b4"><strong>Method:</strong> {{vm.error.method}}</div>
+                            </div>
+
+                            <div><strong>Trace:</strong></div>
+                            <p>
+<pre>{{vm.error.message}}
+ {{vm.error.stackTrace}}
+</pre>
+                            </p>
+                        </div>
+                    </div>
+                </umb-box-content>
+            </umb-box>
+            <umb-box>
+                <umb-box-header title-key="usynccomp_errorHeading"></umb-box-header>
+                <umb-box-content>
+                    <localize key="usynccomp_errorMessage"></localize>
+                    <p>
+                        <a href="https://our.umbraco.com/search?cat=forum&fid=64449&q={{vm.error.message}}" class="btn btn-action" target="_blank" rel="noopener noreferrer">Check the forums</a>
+                        <a href="https://github.com/KevinJump/uSync.Complete.Issues/issues?utf8=%E2%9C%93&q={{vm.error.message}}" class="btn btn-success" target="_blank" rel="noopener noreferrer">Check GitHub issues</a>
+                    </p>
+                    <p>
+                        Can't find anything ? <a href="https://our.umbraco.com/packages/developer-tools/usync/usynccomplete/" class="btn btn-link" target="_blank" rel="noopener noreferrer">Ask a question in the forums</a>
+                    </p>
+                </umb-box-content>
+            </umb-box>
+        </umb-editor-container>
+        <umb-editor-footer>
+            <umb-editor-footer-content-right>
+                <umb-button type="button"
+                            button-style="link"
+                            label-key="general_close"
+                            action="vm.close()">
+                </umb-button>
+            </umb-editor-footer-content-right>
+        </umb-editor-footer>
+    </umb-editor-panel>
+</div>

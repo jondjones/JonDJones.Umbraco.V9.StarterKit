@@ -1,0 +1,129 @@
+﻿<div>
+    <umb-load-indicator ng-if="vm.loading"> </umb-load-indicator>
+
+    <div ng-if="!vm.loading">
+        <umb-box ng-if="!vm.loading">
+
+               <umb-box-header title="Snapshots"
+                               description="Currently Avalible Snapshots"></umb-box-header>
+            <umb-box-content>
+
+                <div ng-if="vm.importDisabled" class="alert alert-warning">
+                    <i class="icon icon-alert"></i> Importing sync packs has been disabled by config
+                </div>
+
+                <div class="umb-table" ng-if="vm.snapshots.length > 0">
+                    <div class="umb-table-head">
+                        <div class="umb-table-row">
+                            <div class="umb-table-cell"></div>
+                            <div class="umb-table-cell">Name</div>
+                            <div class="umb-table-cell">Changes</div>
+                            <div class="umb-table-cell">Created</div>
+                            <div class="umb-table-cell">Applied</div>
+                            <div class="umb-table-cell">Local</div>
+                            <div class="umb-table-cell usync-snapshot-action-button-group">
+                            </div>
+                        </div>
+                        <div class="umb-table-body">
+                            <div ng-repeat="snapshot in vm.snapshots" class="umb-table-row">
+                                <div class="umb-table-cell">
+
+                                    <i class="icon icon-flash color-green" ng-if="snapshot.local"></i>
+                                    <i class="icon icon-flash color" ng-if="!snapshot.local"></i>
+
+                                </div>
+                                <div class="umb-table-cell">{{snapshot.name}}</div>
+                                <div class="umb-table-cell">{{snapshot.fileCount}}</div>
+
+                                <div class="umb-table-cell">{{snapshot.created | date:'medium'}}</div>
+                                <div class="umb-table-cell">
+                                    <div ng-if="snapshot.local">N/A</div>
+                                    <div ng-if="!snapshot.local">{{snapshot.applied | date:'medium'}}</div>
+                                </div>
+                                <div class="umb-table-cell">
+                                    <i class="icon icon-check color-green" ng-if="snapshot.local"></i>
+                                    <i class="icon icon-wrong color-red" ng-if="!snapshot.local"></i>
+                                </div>
+                                <div class="umb-table-cell usync-snapshot-action-button-group">
+                                    <div ng-if="vm.licenced">
+
+                                        <button class="btn btn-small btn-success" ng-click="vm.apply(snapshot.alias)" ng-if="!vm.importDisabled">Apply</button>
+                                        <button class="btn btn-small btn-warning" ng-click="vm.report(snapshot.alias)" ng-if="!vm.importDisabled">Report</button>
+                                        <button class="btn btn-small btn-info" ng-click="vm.download(snapshot.alias)">Download</button>
+                                        <button class="btn btn-small btn-danger" ng-click="vm.remove(snapshot.alias)">Remove</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="usync-snapshot-table-actions">
+                    <div class="usync-snapshot-table-actions-left">
+                        <umb-button type="button"
+                                    action="vm.downloadAll()"
+                                    button-style="action"
+                                    state="vm.buttonState"
+                                    label="Download All"
+                                    disabled="vm.buttonState === 'busy'"
+                                    ng-if="vm.snapshots.length > 0 && !vm.importDisabled">
+
+                        </umb-button>
+
+                        <umb-button ng-if="!vm.importDisabled"
+                                    type="button"
+                                    action="vm.importDialog()"
+                                    button-style="default"
+                                    state="vm.buttonState"
+                                    label="Import..."
+                                    disabled="vm.buttonState == 'busy'">
+                        </umb-button>
+                    </div>
+                    <div class="usync-snapshot-table-actions-right">
+                        <umb-button type="button"
+                                    action="vm.reportAll()"
+                                    button-style="warning"
+                                    state="vm.buttonState"
+                                    label="Report All"
+                                    disabled="vm.buttonState === 'busy'"
+                                    ng-if="vm.snapshots.length > 0 && !vm.importDisabled">
+                        </umb-button>
+                        <umb-button type="button"
+                                    action="vm.applyAll()"
+                                    button-style="success"
+                                    state="vm.buttonState"
+                                    label="Apply All"
+                                    disabled="vm.buttonState === 'busy'"
+                                    ng-if="vm.snapshots.length > 0 && !vm.importDisabled">
+                        </umb-button>
+                    </div>
+                </div>
+            </umb-box-content>
+        </umb-box>
+
+        <umb-box>
+            <umb-box-content ng-if="vm.working || vm.reported">
+                <usync-progress-view update="vm.update" status="vm.status" hide-labels="false" hide-action="true"/>
+            </umb-box-content>
+        </umb-box>
+
+        <umb-box>
+            <umb-box-content ng-if="vm.reported">
+                <usync-report-view actions="vm.action" results="vm.results" hide-action="true"></usync-report-view>
+            </umb-box-content>
+        </umb-box>
+
+
+
+        <umb-empty-state ng-if="vm.snapshots.length == 0">
+            <umb-box>
+                <umb-box-content>
+                    <h5>No Snapshots</h5>
+                    <p>
+                        You currently have no snapshots
+                    </p>
+                </umb-box-content>
+            </umb-box>
+        </umb-empty-state>
+    </div>
+
+</div>

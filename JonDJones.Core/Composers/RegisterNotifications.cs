@@ -1,4 +1,5 @@
 ﻿using JonDJones.Core.Components;
+using JonDJones.Core.Services;
 using Umbraco.Cms.Core.Composing;
 using Umbraco.Cms.Core.DependencyInjection;
 using Umbraco.Cms.Core.Notifications;
@@ -15,6 +16,9 @@ namespace JonDJones.Core.Composers
 
             // Register Components
             builder.Components().Append<ExamineIndexManager>();
+
+            // Exampel of How To Import Content On Start-up
+            builder.Components().Append<ContentImporter>();
         }
     }
 }

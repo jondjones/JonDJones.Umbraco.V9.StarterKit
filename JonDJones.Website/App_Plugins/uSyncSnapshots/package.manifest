@@ -1,0 +1,15 @@
+{
+  "name": "uSync.Snapshots",
+  "version":  "9.1.0",
+  "javascript": [
+    "~/App_Plugins/uSyncSnapshots/services/snapshotService.js",
+    "~/App_Plugins/uSyncSnapshots/backoffice/uSyncSnapshots/snapshotDashboardController.js",
+    "~/App_Plugins/uSyncSnapshots/components/createSnapshotComponent.js",
+    "~/App_Plugins/uSyncSnapshots/components/listSnapshotsComponent.js",
+    "~/App_Plugins/uSyncSnapshots/dashboard/settingsController.js",
+    "~/App_Plugins/uSyncSnapshots/dialog/importController.js"
+  ],
+  "css": [
+    "~/App_Plugins/uSyncSnapshots/uSyncSnapshots.css"
+  ]
+}

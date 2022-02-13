@@ -1,0 +1,17 @@
+{
+  "name": "uSync.Complete",
+  "version": "9.1.0",
+  "javascript": [
+    "~/App_Plugins/uSyncExpansions/expansion.service.js",
+    "~/App_Plugins/uSyncExpansions/licence.controller.js",
+
+    "~/App_Plugins/uSyncExpansions/resources/dependency.manager.js",
+    "~/App_Plugins/uSyncExpansions/resources/item.manager.js",
+    "~/App_Plugins/uSyncExpansions/resources/setting.manager.js",
+
+    "~/App_Plugins/uSyncExpansions/components/licence.component.js",
+    "~/App_Plugins/uSyncExpansions/components/error.component.js",
+    "~/App_Plugins/uSyncExpansions/components/errordialog.controller.js"
+  ],
+  "css": [ "~/App_Plugins/uSyncExpansions/usyncexpansions.css" ]
+}

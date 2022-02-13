@@ -40,6 +40,16 @@ namespace JonDJonesUmbraco9SampleSite
                   id = UrlParameter.Optional
               });
 
+            app.EndpointRouteBuilder.MapControllerRoute(
+               "RSS",
+               "rss",
+               new
+               {
+                   controller = "Rss",
+                   action = "Index",
+                   id = UrlParameter.Optional
+               });
+
             return app;
         }
     }

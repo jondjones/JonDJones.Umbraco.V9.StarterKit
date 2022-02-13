@@ -1,0 +1,37 @@
+﻿<div ng-controller="uSyncSnapshotSettingsController as vm">
+    <umb-box>
+        <umb-box-header title="Settings"
+                        description="Snapshot specifics"></umb-box-header>
+        <umb-box-content>
+
+            <umb-control-group label="Extra Folders"
+                               description="Additional folders you want to include in snapshots">
+                <input type="text"
+                       readonly
+                       ng-model="vm.settings.folders"
+                       placeholder="Comma Seprated folder names"
+                       class="umb-textstring umb-property-editor" />
+            </umb-control-group>
+
+            <umb-control-group label="Exclude patterns"
+                               description="Files to exclude based on a regex pattern">
+                <input type="text"
+                       readonly
+                       ng-model="vm.settings.exclude"
+                       placeholder="Comma seperated regex expressions"
+                       class="umb-textstring umb-property-editor" />
+            </umb-control-group>
+
+        </umb-box-content>
+
+        <umb-box-content>
+
+            <p>
+                These settings are set in your appsettings.json file.
+            </p>
+
+            <umb-code-snippet language="'json'">{{vm.example | json: 4}}</umb-code-snippet>
+        </umb-box-content>
+
+    </umb-box>
+</div>

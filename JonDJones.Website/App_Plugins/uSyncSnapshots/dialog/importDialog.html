@@ -1,0 +1,49 @@
+﻿<div ng-controller="uSyncSnapshotImportController as vm">
+    <umb-editor-panel>
+        <umb-editor-header name="'Import Snapshot File'"
+                           name-locked="true"
+                           hide-alias="true"
+                           hide-icon="true"
+                           hide-description="true">
+        </umb-editor-header>
+        <umb-editor-container>
+
+            <umb-box>
+                <umb-box-header title="Import Snapshot File"></umb-box-header>
+                <umb-box-content>
+                    <input id="usyncsnapshotpicker" type="file"
+                           accept=".zip"
+                           ngf-select
+                           ngf-model="filesHolder"
+                           ngf-change="vm.handleFiles($files, $event)"
+                           ngf-multipart="true"
+                           class="usync-exporter-upload" />
+
+                    <label for="usyncsnapshotpicker" 
+                           class="btn btn-default usync-exporter-upload-button">Choose File</label>
+
+                    <span>{{vm.file.name}}</span>
+
+                    <umb-button type="button"
+                                action="vm.upload(vm.file)"
+                                label-key="general_upload"
+                                button-style="action"
+                                ng-if="vm.file != null"
+                                state="vm.buttonState"
+                                disabled="vm.buttonState == 'busy'" />
+                </umb-box-content>
+            </umb-box>
+
+
+        </umb-editor-container>
+        <umb-editor-footer>
+            <umb-editor-footer-content-right>
+                <umb-button type="button"
+                            button-style="action"
+                            label-key="general_close"
+                            action="vm.close()">
+                </umb-button>
+            </umb-editor-footer-content-right>
+        </umb-editor-footer>
+    </umb-editor-panel>
+</div>

@@ -2,12 +2,12 @@
 using JonDJones.Core.ViewModel.Component;
 using Microsoft.AspNetCore.Html;
 using Newtonsoft.Json.Linq;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Umbraco.Cms.Core.Web;
 using Umbraco.Cms.Web.Common.PublishedModels;
 using Umbraco.Extensions;
+using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace JonDJones.Core.Services
 {
@@ -36,8 +36,10 @@ namespace JonDJones.Core.Services
             {
                 Title = blog.Title,
                 ImageUrl = blog?.Image?.Url() ?? string.Empty,
-                LinkUrl = blog.Url(),
-                Content = new HtmlString(blog.Content.ToString())
+                LinkUrl = blog.Url(null, UrlMode.Absolute),
+                Content = new HtmlString(blog.Content.ToString()),
+                Date = blog.PostDate,
+                Id = blog.Id.ToString()
             };
         }
     }

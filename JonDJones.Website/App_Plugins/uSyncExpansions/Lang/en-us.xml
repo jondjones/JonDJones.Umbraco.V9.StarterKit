@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<language alias="en" intName="English (US)" localName="English (US)" lcid="" culture="en-US">
+	<creator>
+		<name>Jumoo</name>
+		<link>http://jumoo.uk</link>
+	</creator>
+	<area alias="usync">
+		<key alias="files-description">Sync views, css and styles</key>
+	</area>
+	<area alias="usynccomp">
+
+		<key alias="licenceIntro"><![CDATA[<p>A uSync licence gives you full use of the tools in uSync.Complete, 
+		<a href="https://jumoo.co.uk/uSync/Complete" target="_blank">learn more</a>]]></key>
+		
+		<key alias="complete">uSync Complete</key>
+		<key alias="publisher">uSync Publisher</key>
+		<key alias="errorHeading">We're sorry this has happened 😥</key>
+		<key alias="errorMessage"><![CDATA[<p>Why don't you check out some resources to see if other people have had this problem before?</p>]]></key>
+
+		<key alias="missingMappers">
+			<![CDATA[
+		<p>The following datatype editors have no known mappers</p>
+		<ul>%0%</ul>
+		<p>Missing mappers might mean that uSync is unable to calulate dependencies for media and documents.</p>
+		<p>You don't always need mappers (e.g if the property isn't storing links to pages or media) but you might. 
+		More info : <a href="http://usync.docs.jumoo.co.uk/docs/uSync/extending/valuemappers" tartet="_blank">http://usync.docs.jumoo.co.uk/docs/uSync/extending/valuemappers</a>]]>
+		</key>
+	</area>
+</language>

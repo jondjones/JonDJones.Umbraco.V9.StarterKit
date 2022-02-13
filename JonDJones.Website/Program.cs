@@ -19,8 +19,15 @@ namespace JonDJonesUmbraco9SampleSite
                 .ConfigureAppConfiguration((ctx, builder) =>
                 {
                     builder.AddJsonFile("appsettings.json", false, true);
+
+                    var enviroment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+                    Console.WriteLine("HostingEnvironmentName: '{0}'", enviroment);
+
+                    builder.AddJsonFile($"appsettings.{enviroment}.json", true, true);
+
                     // Add local developer level configuraion
                     builder.AddJsonFile($"appsettings.{Environment.MachineName}.json", true, true);
+
                     builder.AddEnvironmentVariables();
                 })
                 .ConfigureWebHostDefaults(webBuilder => webBuilder.UseStartup<Startup>());

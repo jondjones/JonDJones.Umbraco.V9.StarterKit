@@ -24,6 +24,8 @@ namespace JonDJones.Core.Services
 
         public Home Homepage => GetHomePage();
 
+        public string HompageAbsoluteUrl => Homepage.Url(null, UrlMode.Absolute);
+
         private Home GetHomePage()
         {
             using (var umbracoContextReference = _umbracoContextFactory.EnsureUmbracoContext())

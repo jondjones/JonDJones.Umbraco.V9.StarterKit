@@ -15,6 +15,7 @@ namespace JonDJones.Core.Composers
             builder.Services.AddTransient<ISettingsService, SettingsService>();
             builder.Services.AddTransient<ISearchService, SearchService>();
             builder.Services.AddTransient<IXmlSitemapService, XmlSitemapService>();
+            builder.Services.AddTransient<IRssBuilderService, RssBuilderService>();
         }
     }
 }

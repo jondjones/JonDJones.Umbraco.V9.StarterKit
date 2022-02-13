@@ -7,5 +7,7 @@ namespace JonDJones.Core.Interfaces
         Settings SettingsPage { get; }
 
         Home Homepage { get; }
+
+        string HompageAbsoluteUrl { get; }
     }
 }

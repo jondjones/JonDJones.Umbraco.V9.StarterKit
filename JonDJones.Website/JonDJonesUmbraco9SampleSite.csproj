@@ -4,13 +4,17 @@
         <TargetFramework>net5.0</TargetFramework>
         <DefaultItemExcludes>$(DefaultItemExcludes);App_Plugins/**;</DefaultItemExcludes>
         <DefaultItemExcludes>$(DefaultItemExcludes);umbraco/**;</DefaultItemExcludes>
-        <DefaultItemExcludes>$(DefaultItemExcludes);wwwroot/media/**;</DefaultItemExcludes>
         <AspNetCoreHostingModel>OutOfProcess</AspNetCoreHostingModel>
+        <Configurations>Debug;Release;Docker</Configurations>
     </PropertyGroup>
 
     <ItemGroup>
         <PackageReference Include="Umbraco.Cms" Version="9.0.0" />
         <PackageReference Include="Umbraco.TheStarterKit" Version="9.0.0" />
+        <PackageReference Include="uSync" Version="9.1.0" />
+        <PackageReference Include="uSync.BackOffice" Version="9.1.0" />
+        <PackageReference Include="uSync.PeopleEdition" Version="9.1.0" />
+        <PackageReference Include="uSync.Snapshots" Version="9.1.0" />
     </ItemGroup>
 
 
@@ -24,7 +28,6 @@
         <Content Remove="umbraco/models/**" />
         <Compile Include="umbraco/models/**" Exclude="**/*.flag" />
     </ItemGroup>
-
 
 
     <ItemGroup>
@@ -46,6 +49,7 @@
         <LastGenOutput>Robots.cs</LastGenOutput>
       </None>
     </ItemGroup>
+	
 
 
 
