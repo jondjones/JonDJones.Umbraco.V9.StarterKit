@@ -5,7 +5,7 @@ namespace JonDJones.Core.Dashboard
 {
     public class RegisterUnpublishedTutorialsDashboard : IDashboard
     {
-        public string[] Sections => new[] { Constants.Applications.Content };
+        public string[] Sections => new[] { Constants.Applications.Content, "myCustomSection" };
 
         public IAccessRule[] AccessRules
         {

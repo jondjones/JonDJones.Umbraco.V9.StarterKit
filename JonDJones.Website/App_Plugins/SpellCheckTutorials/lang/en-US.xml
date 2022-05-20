@@ -3,5 +3,6 @@
   <area alias="dashboardTabs">
     <key alias="SpellCheckTutorials">Spell Check Tutorials</key>
     <key alias="UnpublishedTutorials">Unpublished Tutorials</key>
+	<key alias="myCustomSection">Custom Section</key>
   </area>
 </language>

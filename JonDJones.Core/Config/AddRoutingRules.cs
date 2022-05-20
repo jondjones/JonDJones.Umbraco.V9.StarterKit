@@ -31,24 +31,24 @@ namespace JonDJonesUmbraco9SampleSite
                            new { Controller = "Admin", Action = "Index" });
 
             app.EndpointRouteBuilder.MapControllerRoute(
-              "XmlSitemap",
-              "sitemap",
-              new
-              {
-                  controller = "XmlSitemap",
-                  action = "Index",
-                  id = UrlParameter.Optional
-              });
+                          "XmlSitemap",
+                          "sitemap",
+                          new
+                          {
+                              controller = "XmlSitemap",
+                              action = "Index",
+                              id = UrlParameter.Optional
+                          });
 
             app.EndpointRouteBuilder.MapControllerRoute(
-               "RSS",
-               "rss",
-               new
-               {
-                   controller = "Rss",
-                   action = "Index",
-                   id = UrlParameter.Optional
-               });
+                           "RSS",
+                           "rss",
+                           new
+                           {
+                               controller = "Rss",
+                               action = "Index",
+                               id = UrlParameter.Optional
+                           });
 
             return app;
         }

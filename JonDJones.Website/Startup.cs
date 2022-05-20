@@ -25,15 +25,14 @@ namespace JonDJonesUmbraco9SampleSite
 
         public void ConfigureServices(IServiceCollection services)
         {
-#pragma warning disable IDE0022 // Use expression body for methods
             services.AddUmbraco(_env, _config)
                 .AddBackOffice()
                 .AddWebsite()
                 .AddComposers()
-                // Appraoch 2:  How to add a notification
+
+                // Approach 2:  How to add a notification
                 .AddNotificationHandler<ContentPublishingNotification, LogPushlishNotification>()
                 .Build();
-#pragma warning restore IDE0022 // Use expression body for methods
         }
 
         public void Configure(
@@ -47,11 +46,15 @@ namespace JonDJonesUmbraco9SampleSite
             else
             {
                 var options = new RewriteOptions();
+
                 //.AddRedirectToHttpsPermanent()
                 //.AddRedirectToWwwPermanent();
-
                 app.UseRewriter(options);
+
+                // Set 500 error page
+                app.UseExceptionHandler("/500.html");
             }
+
             app.UseUmbraco()
                 .WithMiddleware(u =>
                 {
@@ -65,6 +68,7 @@ namespace JonDJonesUmbraco9SampleSite
                     u.UseInstallerEndpoints();
                     u.UseBackOfficeEndpoints();
                     u.UseWebsiteEndpoints();
+
                     // Good practice. Define a custom UmbracoApplicationBuilderExtension
                     u.UseCustomRoutingRules();
                 });

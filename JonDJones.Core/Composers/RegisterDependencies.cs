@@ -1,6 +1,6 @@
 ﻿using JonDJones.Core.Interfaces;
-using JonDJones.Core.Services;
 using Microsoft.Extensions.DependencyInjection;
+using Scrutor;
 using Umbraco.Cms.Core.Composing;
 using Umbraco.Cms.Core.DependencyInjection;
 
@@ -10,12 +10,15 @@ namespace JonDJones.Core.Composers
     {
         public void Compose(IUmbracoBuilder builder)
         {
-            builder.Services.AddTransient<IBlogService, BlogService>();
-            builder.Services.AddTransient<IMenuService, MenuService>();
-            builder.Services.AddTransient<ISettingsService, SettingsService>();
-            builder.Services.AddTransient<ISearchService, SearchService>();
-            builder.Services.AddTransient<IXmlSitemapService, XmlSitemapService>();
-            builder.Services.AddTransient<IRssBuilderService, RssBuilderService>();
+            /// Use Scrutor to auto discover and auto wire-up configuration
+            builder.Services.Scan(scan => scan
+                .FromAssemblies(
+                   typeof(IBlogService).Assembly
+                  )
+                 .AddClasses()
+                 .UsingRegistrationStrategy(RegistrationStrategy.Skip)
+                 .AsImplementedInterfaces()
+                 .WithTransientLifetime());
         }
     }
 }

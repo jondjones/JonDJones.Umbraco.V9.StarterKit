@@ -1,0 +1,100 @@
+﻿@model JonDJones.Core.Controller.Vanilla.AdditionalLinkViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="alternate" type="application/rss+xml" title="Jon D Jones &raquo; Feed" href="http://www.jondjones.com/feed/" />
+    <meta charset="UTF-8" />
+    <meta name="robots" content="nofollow" />
+</head>
+<body>
+    <script>
+        function getShortUrl(apiKey) {
+            var params = {
+                "long_url": document.getElementById("url").innerHTML
+            };
+
+            $.ajax({
+                url: "https://api-ssl.bitly.com/v4/shorten",
+                cache: false,
+                dataType: "json",
+                method: "POST",
+                contentType: "application/json",
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", "Bearer " + apiKey);
+                },
+                data: JSON.stringify(params)
+            }).done(function (data) {
+                let bitly = document.getElementById("bitly");
+                let bitlyCopy = document.getElementById("bitlycopy");
+
+                bitly.innerHTML = data.link;
+
+                bitly.style.visibility = 'visible';
+                bitlyCopy.style.visibility = 'visible';
+
+            }).fail(function (data) {
+                let bitlyError = document.getElementById("bitlyerror");
+                bitlyError.innerHTML = data.responseText;
+            });
+        }
+
+        function CopyUrl() {
+            if (navigator && navigator.clipboard && navigator.clipboard.writeText)
+                return navigator.clipboard.writeText(document.getElementById("url").innerHTML);
+
+            return Promise.reject('The Clipboard API is not available.');
+        }
+
+        function CopyBitlyUrl() {
+            if (navigator && navigator.clipboard && navigator.clipboard.writeText)
+                return navigator.clipboard.writeText(document.getElementById("bitly").innerHTML);
+
+            return Promise.reject('The Clipboard API is not available.');
+        }
+
+        function RedirectToUrl() {
+            window.location.href = document.getElementById("url").innerHTML;
+        }
+    </script>
+    <div>
+        <div class="umb-box">
+            <div class="umb-box-header">
+                <div>
+                    <div class="umb-box-header-title">
+                        URL Information
+                    </div>
+                </div>
+            </div>
+            <div class="block-form umb-box-content">
+                <div style="position: relative;">
+                    <p>
+                        Published Status: @Model.PublishedStatus
+                    </p>
+                    <ul class="nav nav-stacked">
+                        <li id="url">@Model.LinkUrl</li>
+
+                        <li>
+                            <input type="button" value="Copy Url" onclick="CopyUrl();" />
+
+                            <input type="button" value="Oprn Url" onclick="RedirectToUrl();" />
+
+                            <input type="button" value="Bitly" onclick="getShortUrl('@Model.BitlyAPIKey');" />
+                        </li>
+                        <li id="bitly"></li>
+                        <li id="bitlycopy" style="visibility: hidden">
+                            <input type="button" value="Copy Bitly Url" onclick="CopyBitlyUrl();" />
+                        </li>
+                        <li id="bitlyerror"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,7 +1,4 @@
 ﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Rewrite;
-using Microsoft.Extensions.Hosting;
 using Umbraco.Cms.Web.Common.ApplicationBuilder;
 
 namespace JonDJonesUmbraco9SampleSite
