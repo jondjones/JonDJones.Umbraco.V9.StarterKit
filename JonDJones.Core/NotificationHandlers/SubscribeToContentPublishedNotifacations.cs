@@ -20,7 +20,7 @@ namespace JonDJones.Core.Components
                 if (node.ContentType.Alias != Blog.ModelTypeAlias)
                     continue;
 
-                node.SetValue(DocumentTypeConstants.PropertyAlias.UnpublishedTutorial, false);
+                node.SetValue(DocumentTypeConstants.PropertyAlias.UnpublishedTutorial, false, "en-us");
             }
         }
 

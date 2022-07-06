@@ -16,7 +16,7 @@ namespace JonDJones.Core.ContentFinder
     /// </summary>
     public class PageNotFoundContentFinder : IContentLastChanceFinder
     {
-        private IUmbracoContextAccessor _umbracoContextAccessor;
+        private readonly IUmbracoContextAccessor _umbracoContextAccessor;
 
         public PageNotFoundContentFinder(
                 IUmbracoContextAccessor umbracoContextAccessor)

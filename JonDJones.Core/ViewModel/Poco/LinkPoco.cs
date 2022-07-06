@@ -14,6 +14,8 @@ namespace JonDJones.Core.ViewModel.Poco
 
         public string Name { get; set; }
 
+        public string Culture { get; set; }
+
         public string LastPublishedBy { get; set; }
 
         public int DaysTillPublished { get; set; }

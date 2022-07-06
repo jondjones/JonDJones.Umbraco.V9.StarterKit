@@ -1,5 +1,5 @@
 ﻿using JonDJones.Core.Interfaces;
-using JonDJones.Core.Services;
+using JonDJones.Core.Interfaces.Example;
 using JonDJones.Core.ViewModel;
 using JonDJones.Core.ViewModel.Base;
 using Microsoft.AspNetCore.Mvc;
@@ -44,5 +44,9 @@ namespace JonDJones.Core.Controller
 
             return View("~/Views/Home/index.cshtml", viewModel);
         }
+    }
+
+    public interface ISingleteon
+    {
     }
 }

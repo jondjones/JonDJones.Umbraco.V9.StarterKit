@@ -14,6 +14,8 @@ namespace JonDJones.Core.Components
     public class SubscribeToContentSavingNotifacations
         : INotificationHandler<ContentSavingNotification>
     {
+        private readonly string DefaultCulture = "en-us";
+
         public void Handle(ContentSavingNotification notification)
         {
             foreach (var node in notification.SavedEntities)
@@ -30,10 +32,10 @@ namespace JonDJones.Core.Components
             var date = node.GetValue<DateTime?>(DocumentTypeConstants.PropertyAlias.PostDate);
             var unpublished = false;
 
-            if (!date.HasValue && !node.IsCulturePublished("en-GB"))
+            if (!date.HasValue && !node.IsCulturePublished(DefaultCulture))
             {
                 // If the contents published use that date for sorting
-                var postDate = node.GetPublishDate("en-GB");
+                var postDate = node.GetPublishDate(DefaultCulture);
 
                 if (!postDate.HasValue)
                 {
@@ -52,8 +54,8 @@ namespace JonDJones.Core.Components
                     }
                 }
 
-                node.SetValue(DocumentTypeConstants.PropertyAlias.PostDate, postDate);
-                node.SetValue(DocumentTypeConstants.PropertyAlias.UnpublishedTutorial, unpublished);
+                node.SetValue(DocumentTypeConstants.PropertyAlias.PostDate, postDate, DefaultCulture);
+                node.SetValue(DocumentTypeConstants.PropertyAlias.UnpublishedTutorial, unpublished, DefaultCulture);
             }
         }
 

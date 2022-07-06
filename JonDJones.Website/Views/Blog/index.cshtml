@@ -1,9 +1,42 @@
 ﻿@using JonDJones.Core.ViewModel.Base;
 @using System.Web
+@using JonDJones.Core.ViewModel.Page
 @using Umbraco.Cms.Web.Common.PublishedModels;
 @using JonDJones.Core.ViewModel;
 
+
+@model ComposedPageViewModel<Blog, BlogViewModel>
 @{
     Layout = "../master.cshtml";
 }
+
+<section id="main">
+	<div class="container">
+		<div class="row">
+			<div id="content" class="col-12">
+				<article class="box post">
+					<header>
+						<h2><a href="#">@Model.Page.Name</a></h2>
+					</header>
+					<a href="#" class="image featured"><img src="@Model.Page.Image.Url()" alt=""></a>
+					<h3>@Model.ViewModel.TranslationText</h3>
+					<p>@Html.Raw(Model.Page.Content)</p>
+				</article>
+				<ol>
+					@foreach(var link in Model.ViewModel.LanguagePickerLinks) {
+						<li>
+							<a href="@link.Url">
+								@link.Culture
+							</a>
+						</li>
+					}
+				</ol>
+
+
+			</div>
+		</div>
+	</div>
+</section>
+
+
 

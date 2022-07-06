@@ -30,7 +30,7 @@ namespace JonDJones.Core.Services
         {
             using (var umbracoContextReference = _umbracoContextFactory.EnsureUmbracoContext())
             {
-                var root = umbracoContextReference.UmbracoContext.Content.GetByRoute("/", false);
+                var root = umbracoContextReference.UmbracoContext?.Content.GetByRoute("/", false);
                 return new Home(root, _publishedValueFallback);
             }
         }

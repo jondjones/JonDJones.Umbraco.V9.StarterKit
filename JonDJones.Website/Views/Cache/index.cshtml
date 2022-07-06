@@ -1,0 +1,50 @@
+﻿@using JonDJones.Core.ViewModel.Base;
+@using System.Web
+@using System.Linq
+@using JonDJones.Core.ViewModel.Page
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@using JonDJones.Core.ViewModel;
+
+@model ComposedPageViewModel<Cache, CacheViewModel>
+
+@{
+    Layout = "../master.cshtml";
+}
+
+<section id="main">
+	<div class="container">
+		<div class="row">
+			<div id="content" class="col-12">
+
+				<div>
+					<h3>Object Cache (Date updates every 30 seconds)</h3>
+					<b>Date:</b> @Model.ViewModel.Date
+				</div>
+				<div>
+					<h3>Links To JS Bundle (See source)</h3>
+					<script src="js-script"></script>
+					<ul>
+						@foreach (var jsFile in await SmidgeHelper.GenerateJsUrlsAsync("js-script"))
+						{
+							<li>
+								@jsFile
+							</li>
+						}
+					</ul>
+				</div>
+				<div>
+					<h3>Links To CSS Bundle (See source)</h3>
+					<link rel="stylesheet" href="css-script"/>
+					<ul>
+						@foreach (var cssFile in await SmidgeHelper.GenerateCssUrlsAsync("css-script"))
+						{
+							<li>
+								@cssFile
+							</li>
+						}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

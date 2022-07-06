@@ -16,7 +16,7 @@ namespace JonDJones.Core.Composers
             // Register Notification Handlers
             builder.AddNotificationHandler<ContentSavingNotification, SubscribeToContentSavingNotifacations>();
             builder.AddNotificationHandler<ContentPublishedNotification, SubscribeToContentPublishedNotifacations>();
-
+            
             // Register components
             builder.Components().Append<ExamineIndexManager>();
 
