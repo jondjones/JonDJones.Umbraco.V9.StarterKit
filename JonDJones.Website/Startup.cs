@@ -111,7 +111,7 @@ namespace JonDJonesUmbraco9SampleSite
                     headers.CacheControl = new CacheControlHeaderValue
                     {
                         Public = true,
-                        MaxAge = TimeSpan.FromMinutes(1)
+                        MaxAge = TimeSpan.FromDays(1)
                     };
                 }
             });

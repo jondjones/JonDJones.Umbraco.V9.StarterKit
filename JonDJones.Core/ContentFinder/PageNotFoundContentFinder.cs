@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Cms.Core.Routing;
 using Umbraco.Cms.Core.Web;
 using Umbraco.Extensions;
@@ -24,13 +23,13 @@ namespace JonDJones.Core.ContentFinder
             _umbracoContextAccessor = umbracoContextAccessor;
         }
 
-        public bool TryFindContent(IPublishedRequestBuilder request)
+        public Task<bool> TryFindContent(IPublishedRequestBuilder request)
         {
             var notFoundPage = _umbracoContextAccessor.GetRequiredUmbracoContext().Content.GetById(2215);
             request.SetIs404();
             request.SetPublishedContent(notFoundPage);
 
-            return true;
+            return Task.FromResult(true);
         }
     }
 }

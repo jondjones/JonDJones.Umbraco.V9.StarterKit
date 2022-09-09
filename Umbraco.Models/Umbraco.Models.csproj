@@ -1,14 +1,20 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <Configurations>Debug;Release;Docker</Configurations>
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="App_Plugins\**" />
+    <EmbeddedResource Remove="App_Plugins\**" />
+    <None Remove="App_Plugins\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Bergmania.OpenStreetMap" Version="3.3.0" />
-    <PackageReference Include="Umbraco.Cms.Core" Version="9.0.0" />
-    <PackageReference Include="Umbraco.Cms.Infrastructure" Version="9.0.0" />
+    <PackageReference Include="Umbraco.Cms.Core" Version="10.0.1" />
+    <PackageReference Include="Umbraco.Cms.Infrastructure" Version="10.0.1" />
   </ItemGroup>
 
 </Project>

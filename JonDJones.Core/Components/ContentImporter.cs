@@ -28,7 +28,7 @@ namespace JonDJones.Core.Services
             var myJsonString = System.IO.File.ReadAllText(@"example.json");
             var myJObject = JObject.Parse(myJsonString);
 
-            var getParentItem = _settingsService.Homepage.Key;
+            var getParentItem = _settingsService?.Homepage?.Key;
 
             // ImportContent(myJObject, getParentItem);
         }

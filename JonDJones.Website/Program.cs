@@ -1,35 +1,31 @@
+using JonDJonesUmbraco9SampleSite;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
 
-namespace JonDJonesUmbraco9SampleSite
-{
-    public class Program
+var builder = Host.CreateDefaultBuilder()
+    .ConfigureUmbracoDefaults()
+    .ConfigureWebHostDefaults(webBuilder =>
     {
-        public static void Main(string[] args)
-            => CreateHostBuilder(args)
-                .Build()
-                .Run();
+        webBuilder.UseStaticWebAssets();
+        webBuilder.UseStartup<Startup>();
+    })
+    .ConfigureLogging(x => x.ClearProviders())
+    .ConfigureAppConfiguration((ctx, builder) =>
+    {
+        var enviroment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
 
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureLogging(x => x.ClearProviders())
-                .ConfigureAppConfiguration((ctx, builder) =>
-                {
-                    builder.AddJsonFile("appsettings.json", false, true);
+        builder.AddJsonFile("appsettings.json", false, true);
+        builder.AddJsonFile($"appsettings.{enviroment}.json", true, true);
+        builder.AddJsonFile($"appsettings.{Environment.MachineName}.json", true, true);
 
-                    var enviroment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
-                    Console.WriteLine("HostingEnvironmentName: '{0}'", enviroment);
+        builder.AddEnvironmentVariables();
+    });
 
-                    builder.AddJsonFile($"appsettings.{enviroment}.json", true, true);
 
-                    // Add local developer level configuraion
-                    builder.AddJsonFile($"appsettings.{Environment.MachineName}.json", true, true);
+var host = builder.Build();
+host.Run();
 
-                    builder.AddEnvironmentVariables();
-                })
-                .ConfigureWebHostDefaults(webBuilder => webBuilder.UseStartup<Startup>());
-    }
-}

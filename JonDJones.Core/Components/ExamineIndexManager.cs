@@ -49,13 +49,6 @@ namespace JonDJones.Core.Components
             if (args.ValueSet.ItemType == Blog.ModelTypeAlias)
             {
                 using var umbracoContextReference = _umbracoContextFactory.EnsureUmbracoContext();
-
-                //var pageId = int.Parse(args.ValueSet.Id);
-                //var contentNode = umbracoContextReference.UmbracoContext.Content.GetById(pageId);
-                //var postDate = contentNode.Value<DateTime>(DocumentTypeConstants.PropertyAlias.PostDate);
-
-                var date = Convert.ToDateTime(args.ValueSet.GetValue(DocumentTypeConstants.PropertyAlias.PostDate));
-                args.ValueSet.Add(DocumentTypeConstants.PropertyAlias.PostDate, date);
             }
         }
 

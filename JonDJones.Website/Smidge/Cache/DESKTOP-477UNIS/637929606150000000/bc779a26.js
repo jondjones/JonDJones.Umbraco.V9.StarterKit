@@ -1,0 +1,1 @@
+(function(){"use strict";function errorDialogController($scope){function close(){$scope.model.close&&$scope.model.close()}var vm=this;vm.pageTitle=$scope.model.title;vm.message=$scope.model.message;vm.error=$scope.model.error;vm.close=close}angular.module("umbraco").controller("uSyncErrorDialogController",errorDialogController)})()

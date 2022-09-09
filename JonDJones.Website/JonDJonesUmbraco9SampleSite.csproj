@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
     <PropertyGroup>
-        <TargetFramework>net5.0</TargetFramework>
+        <TargetFramework>net6.0</TargetFramework>
         <DefaultItemExcludes>$(DefaultItemExcludes);App_Plugins/**;</DefaultItemExcludes>
         <DefaultItemExcludes>$(DefaultItemExcludes);umbraco/**;</DefaultItemExcludes>
         <AspNetCoreHostingModel>OutOfProcess</AspNetCoreHostingModel>
@@ -10,12 +10,12 @@
 
     <ItemGroup>
         <PackageReference Include="System.Configuration.ConfigurationManager" Version="6.0.0" />
-        <PackageReference Include="Umbraco.Cms" Version="9.0.0" />
+        <PackageReference Include="Umbraco.Cms" Version="10.0.1" />
         <PackageReference Include="Umbraco.TheStarterKit" Version="9.0.0" />
-        <PackageReference Include="uSync" Version="9.1.0" />
-        <PackageReference Include="uSync.BackOffice" Version="9.1.0" />
-        <PackageReference Include="uSync.PeopleEdition" Version="9.1.0" />
-        <PackageReference Include="uSync.Snapshots" Version="9.1.0" />
+        <PackageReference Include="uSync" Version="10.0.0" />
+        <PackageReference Include="uSync.BackOffice" Version="10.0.0" />
+        <PackageReference Include="uSync.PeopleEdition" Version="10.0.0" />
+        <PackageReference Include="uSync.Snapshots" Version="10.0.0" />
         <PackageReference Include="WebEssentials.AspNetCore.OutputCaching" Version="1.0.43" />
     </ItemGroup>
 
@@ -24,11 +24,20 @@
     <ItemGroup>
         <Content Include="App_Plugins/**" CopyToOutputDirectory="Always" />
         <Content Include="umbraco/**" CopyToOutputDirectory="Always" />
+        <Compile Remove="wwwroot\umbraco\**" />
         <Content Remove="umbraco/Data/**" />
         <Content Remove="umbraco/Logs/**" />
         <Content Remove="umbraco/mediacache/**" />
         <Content Remove="umbraco/models/**" />
+        <Content Remove="wwwroot\umbraco\**" />
         <Compile Include="umbraco/models/**" Exclude="**/*.flag" />
+    </ItemGroup>
+
+
+
+    <ItemGroup>
+      <EmbeddedResource Remove="wwwroot\umbraco\**" />
+      <None Remove="wwwroot\umbraco\**" />
     </ItemGroup>
 
 

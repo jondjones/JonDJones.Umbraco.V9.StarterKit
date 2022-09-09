@@ -7,6 +7,7 @@ using Umbraco.Cms.Core.DependencyInjection;
 using Umbraco.Cms.Core.Events;
 using Umbraco.Cms.Core.Models;
 using Umbraco.Cms.Core.Notifications;
+using Umbraco.Cms.Core.Services;
 using Umbraco.Cms.Web.Common.PublishedModels;
 
 namespace JonDJones.Core.Components
@@ -15,6 +16,12 @@ namespace JonDJones.Core.Components
         : INotificationHandler<ContentSavingNotification>
     {
         private readonly string DefaultCulture = "en-us";
+        private readonly IContentService _servicce;
+
+        public SubscribeToContentSavingNotifacations(IContentService servicce)
+        {
+            _servicce = servicce;
+        }
 
         public void Handle(ContentSavingNotification notification)
         {
@@ -41,8 +48,8 @@ namespace JonDJones.Core.Components
                 {
                     unpublished = true;
 
-                    // If the content is scheduled, use the schedule data
-                    var scheduledDate = node.ContentSchedule
+                    // If the content is scheduled, use the schedule dat
+                    var scheduledDate = _servicce.GetContentScheduleByContentId(node.Id)
                         .FullSchedule.FirstOrDefault(x => x.Action == ContentScheduleAction.Release);
                     if (scheduledDate != null)
                     {

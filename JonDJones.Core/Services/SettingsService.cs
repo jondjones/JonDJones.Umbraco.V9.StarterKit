@@ -1,4 +1,5 @@
 ﻿using JonDJones.Core.Interfaces;
+using System;
 using System.Linq;
 using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Cms.Core.Web;
@@ -30,8 +31,14 @@ namespace JonDJones.Core.Services
         {
             using (var umbracoContextReference = _umbracoContextFactory.EnsureUmbracoContext())
             {
-                var root = umbracoContextReference.UmbracoContext?.Content.GetByRoute("/", false);
-                return new Home(root, _publishedValueFallback);
+                try
+                {
+                    var root = umbracoContextReference.UmbracoContext?.Content.GetByRoute("/", false);
+                    return new Home(root, _publishedValueFallback);
+                }catch(Exception ex)
+                {
+                    return null;
+                }
             }
         }
 

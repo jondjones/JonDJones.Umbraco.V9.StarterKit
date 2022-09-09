@@ -3,6 +3,7 @@ using JonDJones.Core.ViewModel.Base;
 using JonDJones.Core.ViewModel.Page;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewEngines;
+using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Logging;
 using System;
